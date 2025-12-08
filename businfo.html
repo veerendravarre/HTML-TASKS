@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TSRTC — General Bus Pass Application</title>
+</head>
+<body>
+
+  <!-- TSRTC LOGO -->
+   <center>
+    <img src="bus.png" width="65%" >
+   </center>
+   
+<center>
+
+  <h1>TELANGANA STATE ROAD TRANSPORT CORPORATION</h1>
+  <h2>GENERAL BUS PASS APPLICATION</h2>
+
+</center>
+
+  <form id="passForm" novalidate>
+
+    <!-- Applicant Details -->
+    <fieldset>
+      <legend>Applicant Details</legend>
+
+      <p>
+        <label>Full Name*<br>
+        <input type="text" name="name" required></label>
+      </p>
+
+      <p>
+        <label>Father / Guardian Name*<br>
+        <input type="text" name="guardian" required></label>
+      </p>
+
+      <p>
+        <label>Date of Birth*<br>
+        <input type="date" id="dob" name="dob" required></label><br>
+        <span id="ageDisplay"></span>
+      </p>
+
+      <p>Gender*<br>
+        <label><input type="radio" name="gender" value="Male" required> Male</label>
+        <label><input type="radio" name="gender" value="Female"> Female</label>
+        <label><input type="radio" name="gender" value="Other"> Other</label>
+      </p>
+
+      <p>
+        <label>Aadhaar No (12 digits)<br>
+        <input type="text" maxlength="12" pattern="\d{12}" name="aadhaar"></label>
+      </p>
+
+      <p>
+        <label>WhatsApp Number*<br>
+        <input type="tel" maxlength="10" pattern="[6-9]\d{9}" required></label>
+      </p>
+
+      <p>
+        <label>Email ID*<br>
+        <input type="email" name="email" required></label>
+      </p>
+
+      <p>
+        <label>Photo Upload*<br>
+        <input type="file" accept="image/*" required></label>
+      </p>
+    </fieldset>
+
+    <!-- Address -->
+    <fieldset>
+      <legend>Residential Address</legend>
+
+      <p>
+        <label>Address*<br>
+        <input type="text" name="address" required></label>
+      </p>
+
+      <p>
+        <label>District*<br>
+        <select name="district" required>
+          <option value="">-- Select --</option>
+          <option>HYDERABAD</option>
+          <option>ADILABAD</option>
+          <option>NALGONDA</option>
+          <option>WARANGAL</option>
+        </select></label>
+      </p>
+
+      <p>
+        <label>Pincode*<br>
+        <input type="text" maxlength="6" pattern="\d{6}" name="pincode" required></label>
+      </p>
+    </fieldset>
+
+    <!-- Pass Details -->
+    <fieldset>
+      <legend>Pass Type & Collection</legend>
+
+      <p>
+        <label>City*<br>
+        <select name="city" required>
+          <option value="">-- Select --</option>
+          <option>HYDERABAD</option>
+          <option>ADILABAD</option>
+          <option>NALGONDA</option>
+          <option>WARANGAL</option>
+        </select></label>
+      </p>
+
+      <p>
+        <label>Pass Type*<br>
+        <select name="passtype" required>
+          <option value="">-- Select --</option>
+          <option>GREATER PASS</option>
+          <option>GENERAL ORDINARY ROUTE PASS (MTLY)</option>
+          <option>GENERAL METRO EXPRESS ROUTE PASS (MTLY)</option>
+          <option>ORDINARY PASS</option>
+          <option>METRO EXPRESS PASS</option>
+          <option>METRO DELUXE PASS</option>
+        </select></label>
+      </p>
+
+      <p>
+        <label>Payment Mode*<br>
+        <select name="payment" required>
+          <option value="">Select Payment Mode</option>
+          <option>Online</option>
+          <option>Cash at Counter</option>
+          <option>UPI</option>
+        </select></label>
+      </p>
+
+      <p>
+        <label>Delivery Mode*<br>
+        <select name="delivery" required>
+          <option value="">Select Delivery Mode</option>
+          <option>At Counter</option>
+          <option>Courier</option>
+        </select></label>
+      </p>
+
+      <p>
+        <label>Collection Center<br>
+        <select id="center" name="center">
+          <option value="">-- Select Center --</option>
+        </select></label>
+      </p>
+    </fieldset>
+
+    <!-- CAPTCHA -->
+    <fieldset>
+      <legend>Captcha Verification</legend>
+
+      <p>
+        <label>Enter the number shown below*</label><br><br>
+
+        <!-- Captcha Value -->
+        <b id="captchaBox" style="font-size:20px;"></b>
+        &nbsp;
+        <button type="button" onclick="generateCaptcha()">Refresh</button>
+
+        <br><br>
+
+        <input type="text" id="captchaInput" placeholder="Enter Captcha" required>
+      </p>
+    </fieldset>
+
+    <p><button type="submit">Submit</button></p>
+
+  </form>
+
+<script>
+  /* Centers List */
+  const centers = [
+    { name: "RTC ABIDS -- HYD", date: "09/12/2025" },
+    { name: "RTC AFZALGUNJ -- HYD", date: "09/12/2025" },
+    { name: "RTC AIRPORT -- HYD", date: "08/12/2025" },
+    { name: "RTC ARAMGHAR -- HYD", date: "09/12/2025" },
+    { name: "RTC BALANAGAR -- HYD", date: "09/12/2025" },
+    { name: "RTC BORABANDA -- HYD", date: "09/12/2025" }
+  ];
+
+  const centerSelect = document.getElementById('center');
+  centers.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.name;
+    opt.textContent = c.name + ' [' + c.date + ']';
+    centerSelect.appendChild(opt);
+  });
+
+  /* Age Calculation */
+  const dob = document.getElementById('dob');
+  const ageDisplay = document.getElementById('ageDisplay');
+
+  dob.addEventListener('change', () => {
+    const d = new Date(dob.value);
+    if (!isNaN(d)) {
+      const now = new Date();
+      let years = now.getFullYear() - d.getFullYear();
+      let months = now.getMonth() - d.getMonth();
+      let days = now.getDate() - d.getDate();
+
+      if (days < 0) { months--; days += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+      if (months < 0) { years--; months += 12; }
+
+      ageDisplay.textContent =
+        "Age: " + years + " years " + months + " months " + days + " days";
+    }
+  });
+
+  /* Captcha Generator */
+  let captchaValue = "";
+
+  function generateCaptcha() {
+    captchaValue = Math.floor(10000 + Math.random() * 90000); // 5-digit code
+    document.getElementById("captchaBox").innerText = captchaValue;
+  }
+
+  generateCaptcha();
+
+  /* Form Submit Validation */
+  document.getElementById("passForm").addEventListener("submit", function(e) {
+    const userCaptcha = document.getElementById("captchaInput").value;
+
+    if (userCaptcha != captchaValue) {
+      e.preventDefault();
+      alert("Incorrect Captcha! Please try again.");
+      generateCaptcha();
+      return;
+    }
+
+    alert("Form Submitted Successfully!");
+  });
+</script>
+
+</body>
+</html>
