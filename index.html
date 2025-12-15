@@ -1,93 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Forms Task</title>
+    <title>Veerendra Varre - Resume</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS (Projects & Skills) -->
+    <style>
+        .projects {
+            background: linear-gradient(to right, #d0cad6, #e3f2fd);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .projects h3 {
+            color: #2d18cf;
+        }
+
+        .skills {
+            background: linear-gradient(to right, #f8bbd0, #fce4ec);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .skills li {
+            color: #880e4f;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- Task 1 -->
-    <h2>Task 1</h2>
-    <h3>HTML Forms</h3>
+    <!-- HEADER (INLINE CSS) -->
+    <h1 style="
+        background: linear-gradient(to right, #6a1b9a, #8e24aa);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 15px;">
+        VEERENDRA VARRE
+    </h1>
 
-    <form>
-        <label>Username:</label><br>
-        <input type="text"><br><br>
+    <p style="text-align:center; font-size:15px;">
+        <span style="color: rgb(228, 13, 145);" >
+ 📞 8790049086 |
+        </span>
 
-        <label>Password:</label><br>
-        <input type="password"><br><br>
-
-        <input type="submit" value="Submit">
-    </form>
-
-    <br><br>
+       <span style="color:rgba(55, 6, 202, 0.55);">
+ 📧 veerendravarre@gmail.com |
+       </span>
+       <span style="color: rgba(0, 128, 0, 0.938);">
+ 📍 Rajahmundry <br>
+       </span>
+       <span style="color: rgb(15, 139, 211);">
+        🔗 linkedin.com/in/varre-veerendra |
+       </span>
+        <span style="color: rgba(232, 120, 8, 0.674);">
+             🔗 github.com/veerendravarre 
+        </span>
     
+    </p>
 
-    <!-- Task 2 -->
-    <h2>Task 2</h2>
+    <!-- SUMMARY (INLINE CSS) -->
+    <h2 style="color:#1b5e20;">SUMMARY</h2>
+    <p style="
+        background: linear-gradient(to right, #8fed8f, #e8f5e9);
+        padding: 15px;
+        border-left: 6px solid #5ad662;
+        border-radius: 10px;">
+        Aspiring Software Engineer skilled in Java, Python, SQL, HTML, CSS, and JavaScript.
+        Experienced in full-stack development, Salesforce development, and machine learning.
+        Strong foundation in OOP, DBMS, DSA, OS, and Computer Networks.
+    </p>
 
-    <form>
-        <label>First name:</label>
-        <input type="text"><br><br>
+    <!-- EDUCATION (INLINE CSS) -->
+    <h2 style="color:#0861e5d8;">EDUCATION</h2>
+    <ul style="
+        background: linear-gradient(to right, #bbdefb, #e3f2fd);
+        padding: 20px;
+        border-radius: 12px;">
+        <li><b>B.Tech – IT</b> | GIET Engineering College | CGPA: 7.78</li><br>
+        <li><b>Intermediate</b> | Sri Chaitanya Junior College | CGPA: 7.23</li><br>
+        <li><b>SSC</b> | Meher Vidya Niketan | CGPA: 9.3</li>
+    </ul>
 
-        <label>Last name:</label>
-        <input type="text"><br><br>
+    <!-- PROJECTS (INTERNAL CSS) -->
+    <h2>PROJECTS</h2>
+    <div class="projects">
+        <h3>Sign Language Detection Using Image Processing</h3>
+        <p><b>Technologies:</b> Python, OpenCV, TensorFlow/Keras, CNN</p>
+        <ul>
+            <li>Real-time hand gesture recognition system</li>
+            <li>Converted signs into text</li>
+            <li>Achieved ~90% accuracy</li>
+        </ul>
+    </div>
 
-        <label>Email:</label>
-        <input type="email"><br><br>
+    <!-- SKILLS (INTERNAL CSS) -->
+    <h2>TECHNICAL SKILLS</h2>
+    <div class="skills">
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>SQL</li>
+            <li>Git & VS Code</li>
+        </ul>
+    </div>
 
-        <label>Password:</label>
-        <input type="password"><br><br>
+    <!-- (EXTERNAL CSS) -->
+    <div class="external-section internships">
+        <h2>INTERNSHIPS</h2>
+        <p><b>Salesforce Developer Intern</b> (Nov 2023 – Jan 2024)</p>
+        <ul>
+            <li>Apex Triggers & Lightning Components</li>
+            <li>CRM Customizations</li>
+        </ul>
 
-        <input type="submit" value="Login!">
-    </form>
+        <p><b>Full Stack Developer Intern – APSCHE-IIDT</b></p>
+        <ul>
+            <li>Responsive web applications</li>
+            <li>UI/UX improvements</li>
+        </ul>
+    </div>
 
-</body>
-</html>
- <h1>Task 3</h1>
-    <h2>Registration Form</h2>
+    <div class="external-section subjects">
+        <h2>CORE SUBJECTS</h2>
+        <p>OOP, DBMS, DSA, OS, Computer Networks, SDLC</p>
+    </div>
 
-    <form>
+    <div class="external-section achievements">
+        <h2>ACHIEVEMENTS</h2>
+        <ul>
+            <li>NPTEL Java Certification (2024)</li>
+            <li>Salesforce Certification</li>
+            <li>Full Stack Certification – 77/100</li>
+        </ul>
+    </div>
 
-        <label>First Name :</label>
-        <input type="text" placeholder="Enter First Name"><br><br>
-
-        <label>Last Name :</label>
-        <input type="text" placeholder="Enter Last Name"><br><br>
-
-        <label>Email :</label>
-        <input type="email" placeholder="Enter Email Address"><br><br>
-
-        <label>Password :</label>
-        <input type="password"><br><br>
-
-        <label>Gender :</label><br>
-        Male <input type="radio" name="gender"><br>
-        Female <input type="radio" name="gender"><br>
-        Other <input type="radio" name="gender"><br><br>
-
-        <label>Age :</label>
-        <input type="number"><br><br>
-
-        <label>Preferences :</label><br>
-        Acrylic Painting <input type="checkbox"><br>
-        Oil Painting <input type="checkbox"><br>
-        Water Color Painting <input type="checkbox"><br><br>
-
-        <label>Select Occupation :</label>
-        <select>
-            <option>Student</option>
-            <option>Employee</option>
-            <option>Self Employed</option>
-            <option>Other</option>
-        </select><br><br>
-
-        <label>Bio</label><br>
-        <textarea rows="5" cols="40" placeholder="Share few lines about yourself..."></textarea><br><br>
-
-        <input type="reset" value="RESET">
-        <input type="submit" value="SUBMIT">
-
-    </form>
+    <div class="external-section strengths">
+        <h2>STRENGTHS</h2>
+        <ul>
+            <li>Quick Learner</li>
+            <li>Problem Solving</li>
+            <li>Communication Skills</li>
+            <li>Team Collaboration</li>
+        </ul>
+    </div>
 
 </body>
 </html>

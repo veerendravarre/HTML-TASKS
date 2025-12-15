@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f9fbe7;
+    margin: 20px;
+}
+
+/* INTERNSHIPS */
+.internships {
+    background: linear-gradient(to right, #d1c4e9, #ede7f6);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* CORE SUBJECTS */
+.subjects {
+    background: linear-gradient(to right, #ffe0b2, #fff3e0);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* ACHIEVEMENTS */
+.achievements {
+    background: linear-gradient(to right, #b2dfdb, #e0f2f1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* STRENGTHS */
+.strengths {
+    background: linear-gradient(to right, #ffcdd2, #ffebee);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.external-section h2 {
+    color: #263238;
+}
