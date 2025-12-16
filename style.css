@@ -1,41 +1,33 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f9fbe7;
-    margin: 20px;
+.container{
+    /* border: 2px solid red; */
+    /* width: 1200px; */
+    /* height: 600px; */
+    padding: 80px;
 }
-
-/* INTERNSHIPS */
-.internships {
-    background: linear-gradient(to right, #d1c4e9, #ede7f6);
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
+.child-1{
+    display: inline-block;
+    /* border: 2px solid green; */
+    width: 300px;
+    /* height: 500px; */
 }
-
-/* CORE SUBJECTS */
-.subjects {
-    background: linear-gradient(to right, #ffe0b2, #fff3e0);
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
+.child-2{
+     display: inline-block;
+    /* border: 2px solid green; */
+    width: 300px;
+    /* height: 500px; */
 }
-
-/* ACHIEVEMENTS */
-.achievements {
-    background: linear-gradient(to right, #b2dfdb, #e0f2f1);
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
+.child-3{
+     display: inline-block;
+    /* border: 2px solid green; */
+    width: 300px;
+    /* height: 500px; */
 }
-
-/* STRENGTHS */
-.strengths {
-    background: linear-gradient(to right, #ffcdd2, #ffebee);
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
+.child-4{
+     display: inline-block;
+    /* border: 2px solid green; */
+    width: 300px;
+    /* height: 500px; */
 }
-
-.external-section h2 {
-    color: #263238;
+img{
+    width: 100%;
 }
